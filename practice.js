@@ -32,3 +32,34 @@ var merge = function(nums1, m, nums2, n) {
         p2--;
     }
 };
+
+/*Given an integer array nums and an integer val, remove all occurrences of val in nums in-place. The order of the elements may be changed. Then return the number of elements in nums which are not equal to val.
+
+Consider the number of elements in nums which are not equal to val be k, to get accepted, you need to do the following things:
+
+Change the array nums such that the first k elements of nums contain the elements which are not equal to val. The remaining elements of nums are not important as well as the size of nums.
+Return k.*/ 
+
+var removeElement = function(nums, val) {
+            //initialize k to count how many are not equal to val
+            let k = 0;
+            //initialize two pointers, one to check if the val in nums is equal to val, one to keep track of where to swap;
+            let t = nums.length - 1;
+            let p = nums.length - 1;
+            //Iterate throught the array
+            while(p >= 0){
+                //if where p is in the array = val swap nums[p] and nums[t]
+                if(nums[p] == val){
+                    nums[p] = nums[t];
+                    nums[t] = val;
+                    p --;
+                    t --;
+                }
+                //if not increment k by one and decrease p
+                else{
+                    p --;
+                    k ++;
+                }
+            }
+            return k;
+};
