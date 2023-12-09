@@ -117,4 +117,45 @@ var majorityElement = function(nums) {
 
 };
 
-majorityElement([2,2,1,1,1,2,2])
+/*Given two strings ransomNote and magazine, return true if ransomNote can be constructed by using the letters from magazine and false otherwise.
+
+Each letter in magazine can only be used once in ransomNote.*/
+
+var canConstruct = function(ransomNote, magazine) {
+    const r = new Map()
+    const m = new Map()
+
+    for(let i = 0; i < ransomNote.length; i++){
+        let key = ransomNote[i]
+        if(r.get(key) >= 1){
+
+            let val = r.get(ransomNote[i]) + 1
+            r.set(key, val)
+                }
+        else{
+            r.set(key, 1)
+            m.set(key, 0)
+        }
+
+    }
+    for(let i = 0; i < magazine.length; i++){
+        let key = magazine[i]
+        if(m.get(key) >= 0){
+            let val = m.get(magazine[i]) + 1
+            m.set(key, val)            
+        }
+        else{
+            m.set(key, 1)
+        }
+    }
+    console.log(m)
+    for (let [key, value] of  r.entries()) {
+        if(m.get(key) < value || m.get(key) == undefined){
+            return false
+        }
+    }
+    return true
+
+};
+
+console.log(canConstruct("fihjjjjei","hjibagacbhadfaefdjaeaebgi"))
