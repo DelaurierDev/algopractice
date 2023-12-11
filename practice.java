@@ -1,5 +1,5 @@
 
-
+import java.util.HashMap;
 class Practice{
     public static void main(String[] args){
     }
@@ -103,4 +103,33 @@ public int removeDuplicates(int[] nums) {
     }
     return k;
     }
+
+
+/*Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once. */
+
+public boolean isAnagram(String s, String t) {
+    //if the lengths are the same they cant be anagrams
+    if (s.length() != t.length()) {
+        return false;
+    }
+    //create an array to keep track of the frequencies of the letters
+    int[] freq = new int[26];
+    // iterate through the array
+    for (int i = 0; i < s.length(); i++) {
+        //add one for every time the char shows up in s
+        freq[s.charAt(i) - 'a']++;
+        //subtract one for everytime the char shows up in t
+        freq[t.charAt(i) - 'a']--;
+    }
+    // if they are anagrams, every value in freq array should be zero
+    for (int i = 0; i < freq.length; i++) {
+        if (freq[i] != 0) {
+            return false;
+        }
+    }
+    
+    return true;
+}
 }
