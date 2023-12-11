@@ -159,3 +159,47 @@ var canConstruct = function(ransomNote, magazine) {
 };
 
 console.log(canConstruct("fihjjjjei","hjibagacbhadfaefdjaeaebgi"))
+
+/*Given two strings s and t, return true if t is an anagram of s, and false otherwise.
+
+An Anagram is a word or phrase formed by rearranging the letters of a different word or phrase, typically using all the original letters exactly once.*/
+
+var isAnagram = function(s, t) {
+    const one = new Map()
+    const two = new Map()
+    if(s.length != t.length){
+        return false
+    }
+    for(let i = 0; i < s.length; i++){
+        let key = s[i]
+        if(one.get(key) >= 0){
+            let val = one.get(s[i]) + 1
+            one.set(key, val)            
+        }
+        else{
+            one.set(key, 1)
+            two.set(key, 0)
+        }
+    }
+    for(let i = 0; i < t.length; i++){
+        let key = t[i]
+        if(two.get(key) >= 1){
+
+            let val = two.get(t[i]) + 1
+            two.set(key, val)
+                }
+        else{
+            two.set(key, 1)
+        }
+
+    }    
+    for (let [key, value] of  one.entries()) {
+        if(two.get(key) != value ){
+            return false
+        }
+    }
+    return true
+
+};
+
+isAnagram("a", "ab")
