@@ -132,4 +132,28 @@ public boolean isAnagram(String s, String t) {
     
     return true;
 }
+/*A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise. */
+public boolean isPalindrome(String s) {
+    String str = "";
+    for(int i = 0; i < s.length(); i++){
+        char c = s.charAt(i);
+        if((c >= 'a' && c <= 'z') ||
+        (c >= 'A' && c <= 'Z') ||
+        (c >= '0' && c <= '9')){
+            str += Character.toLowerCase(c);
+        }
+    }
+    System.out.println(str);
+    String rev = "";
+    for(int i = str.length() - 1; i >=0; i --){
+        rev += str.charAt(i);
+    }
+    if(rev == str){
+        return true;
+    }
+    return false;
+        
+}
 }
