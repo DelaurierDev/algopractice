@@ -203,3 +203,32 @@ var isAnagram = function(s, t) {
 };
 
 isAnagram("a", "ab")
+
+/*A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
+
+Given a string s, return true if it is a palindrome, or false otherwise.*/
+var isPalindrome = function(s) {
+    /*var b = '';
+    for (var i = 0; i < s.length; i++) {
+        console.log(s[i])
+        if (s[i].match(/^[a-zA-Z0-9]/)) {
+            b += s[i].toLowerCase()
+        }
+    }
+    console.log(b)
+    let back = b.length - 1
+    let front = 0
+    while(back >= front){
+        if(b[back] != b[front]){
+            return false
+        }
+        back --
+        front ++
+    }
+    return true*/
+    let str = s.replace(/[^a-z0-9]/gi, '').toLowerCase();
+    let rev = str.split("").reverse().join("");
+    return (str == rev) ? true : false;
+};
+
+console.log(isPalindrome("0p"))
