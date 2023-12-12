@@ -96,5 +96,31 @@ def isAnagram( s, t):
 print(isAnagram("hello", "yo"))
 
 '''
+A phrase is a palindrome if, after converting all uppercase letters into lowercase letters and removing all non-alphanumeric characters, it reads the same forward and backward. Alphanumeric characters include letters and numbers.
 
+Given a string s, return true if it is a palindrome, or false otherwise.
 '''
+
+def isPalindrome( s):
+    """
+    :type s: str
+    :rtype: bool
+    """
+    b=""
+    i=0
+    
+    for char in s:
+        if char.isalpha() or char.isnumeric():
+            b += char.lower()
+    print(b)
+    j=len(b) - 1
+    while(i <= j):
+
+        if(b[i] != b[j]):
+            return False
+        i += 1
+        j -= 1 
+
+    return True
+
+print(isPalindrome("A man, a plan, a canal: Panama"))
