@@ -257,4 +257,4 @@ var twoSum = function(numbers, target) {
     }
 };
 
-console.log(twoSum([5,25,75], 100))
+console.log(twoSum([5,2575], 100))
