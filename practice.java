@@ -184,4 +184,20 @@ public int[] twoSum(int[] numbers, int target) {
 public int strStr(String haystack, String needle) {
     return haystack.indexOf(needle);
 }
+
+/* Given two strings s and t, return true if s is a subsequence of t, or false otherwise.
+
+A subsequence of a string is a new string that is formed from the original string by deleting some (can be none) of the characters without disturbing the relative positions of the remaining characters. (i.e., "ace" is a subsequence of "abcde" while "aec" is not).*/
+public boolean isSubsequence(String s, String t) {
+        int currentIndex = 0;
+        int p1 = 0;
+        while(t.indexOf(s.charAt(p1), currentIndex) >= 0){
+            p1++;
+            currentIndex = t.indexOf(s.charAt(p1), currentIndex) + 1;
+        }
+        if(p1 == s.length() - 1){
+            return true;
+        }
+        return false;
+}
 }
