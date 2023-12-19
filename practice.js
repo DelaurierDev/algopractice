@@ -284,4 +284,22 @@ var isSubsequence = function(s, t) {
 
 console.log(isSubsequence("axc", "ahbgdc"))
 
-/* */
+/* Given two 0-indexed integer arrays nums1 and nums2, return a list answer of size 2 where:
+
+answer[0] is a list of all distinct integers in nums1 which are not present in nums2.
+answer[1] is a list of all distinct integers in nums2 which are not present in nums1.
+Note that the integers in the lists may be returned in any order.*/
+
+var findDifference = function(nums1, nums2) {
+    const a = new Set(nums1)
+    const b = new Set(nums2)
+    for (const num of a){
+        if(b.has(num)){
+            a.delete(num)
+            b.delete(num)
+        }
+    }
+    return [Array.from(a), Array.from(b)]
+};
+
+console.log(findDifference([1,2,3,3],[1,1,2,2]))
