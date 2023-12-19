@@ -200,14 +200,14 @@ def findDifference( nums1, nums2):
     for i in nums1:
         if i not in nums2 and i not in map:
             map[i] = 1
-    for key in map:
-        one.append(key)
-    map.clear()
     for i in nums2:
         if i not in nums1 and i not in map:
-            map[i] = 1
-    for key in map:
-        two.append(key)
+            map[i] = 2
+    for key, value in map.items():
+        if value == 1:
+            one.append(key)
+        else:
+            two.append(key)
     return [one, two]
 
 print(findDifference([1,2,3,3],[1,1,2,2]))
