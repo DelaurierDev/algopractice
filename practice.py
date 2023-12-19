@@ -185,3 +185,33 @@ def isSubsequence(self, s, t):
             return True
     return False
 
+'''
+Given two 0-indexed integer arrays nums1 and nums2, return a list answer of size 2 where:
+
+answer[0] is a list of all distinct integers in nums1 which are not present in nums2.
+answer[1] is a list of all distinct integers in nums2 which are not present in nums1.
+Note that the integers in the lists may be returned in any order.
+
+'''
+def findDifference( nums1, nums2):
+    one = []
+    two = []
+    map = {}
+    for i in nums1:
+        if i not in nums2 and i not in map:
+            map[i] = 1
+    for key in map:
+        one.append(key)
+    map.clear()
+    for i in nums2:
+        if i not in nums1 and i not in map:
+            map[i] = 1
+    for key in map:
+        two.append(key)
+    return [one, two]
+
+print(findDifference([1,2,3,3],[1,1,2,2]))
+    
+    
+    
+
