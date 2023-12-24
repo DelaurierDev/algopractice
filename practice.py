@@ -313,3 +313,23 @@ def reverseVowels( s):
 
 print(reverseVowels("hello"))
 
+'''
+leet code weekly contest 377
+'''
+
+def numberGame( nums):
+    arr = []
+    if len(nums) == 0:
+        return []
+    while len(nums) != 0:
+        a = min(nums)
+        nums.remove(a)
+        b = min (nums)
+        nums.remove(b)
+        arr.append(b)
+        arr.append(a)
+        print(arr)
+    return arr
+numberGame([2,7,9,6,4,6])
+
+
