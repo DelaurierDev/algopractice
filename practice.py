@@ -375,14 +375,27 @@ Return the smallest sorted list of ranges that cover all the numbers in the arra
 Each range [a,b] in the list should be output as:
 '''
 def summaryRanges(nums):
-    ranges = [] # [start, end] or [x, y]
-    for i, n in enumerate(nums):
-        if ranges and ranges[-1][1] == n-1:
-            ranges[-1][1] = n
-        else:
-            ranges.append([n, n])
+	result = []
 
-    return [f'{x}->{y}' if x != y else f'{x}' for x, y in ranges]
+	start , end = 0 , 0
+
+	while start < len(nums) and end < len(nums):
+
+		if (end + 1) < len(nums) and nums[end] + 1 == nums[end + 1]:
+			end = end + 1
+		else:
+
+			if nums[start] == nums[end]:
+				result.append(str(nums[start]))
+				start = start + 1
+				end = end + 1
+
+			else:
+				result.append(str(nums[start]) + '->' + str(nums[end]))
+				end = end + 1
+				start = end
+
+	return result
         
 
 print(summaryRanges([0,1,2,4,5,7]))
