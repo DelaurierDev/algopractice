@@ -421,3 +421,26 @@ def romanToInt(self, s: str) -> int:
     for char in s:
         number += translations[char]
     return number
+
+'''
+Given an integer array nums, move all 0's to the end of it while maintaining the relative order of the non-zero elements.
+'''
+
+def moveZeroes(self, nums):
+    """
+    :type nums: List[int]
+    :rtype: None Do not return anything, modify nums in-place instead.
+    """
+    i, j = 0, 0
+    n = len(nums)
+    while i < n and j < n:
+        if nums[i] != 0:
+            i += 1
+            continue
+        if nums[j] == 0:
+            j += 1
+            continue
+        if (i < j):
+            nums[i] = nums[j]
+            nums[j] = 0
+        j += 1
